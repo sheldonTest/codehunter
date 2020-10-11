@@ -19,11 +19,8 @@ interface ApiService {
     @GET(Constants.AUTH_PARAMS)
     fun oauthHtmlRequest() : Call<String>
 
-    //?fromdate=1599609600&todate=1602201600&order=desc&sort=activity&site=stackoverflow
     @GET(Constants.RECENT_QUESTIONS_PARAMS)
-    fun getRecentQuestions(@Query("fromdate") fromDate: Int = 1599609600,
-                           @Query("todate") todate: Int = 1602201600,
-                            @Query("order") order: String = "desc",
+    fun getRecentQuestions( @Query("order") order: String = "desc",
                             @Query("sort") sort: String = "activity",
                             @Query("site") site: String = "stackoverflow"): Call<String>
 

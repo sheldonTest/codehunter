@@ -47,6 +47,7 @@ class SOViewModel(private val repository: Repository) : ViewModel() {
                     val html = response.body()
                     Log.i("WE_DID_IT","Auth Token: ${html}")
 
+                    /*
                     val webView = context.findViewById<WebView>(R.id.web)
                     webView.apply {
                         settings.loadsImagesAutomatically = true
@@ -56,9 +57,11 @@ class SOViewModel(private val repository: Repository) : ViewModel() {
                         settings.loadWithOverviewMode = true
                     }
 
+
                     if (html != null) {
                         webView.loadDataWithBaseURL(null,html,"text/html","utf-8",null)
                     }
+                    */
                 }
             }
 
