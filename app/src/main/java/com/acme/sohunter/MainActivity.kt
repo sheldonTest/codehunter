@@ -1,35 +1,34 @@
 package com.acme.sohunter
 
-import android.content.ComponentName
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.webkit.WebView
-import android.webkit.WebViewClient
-import com.acme.sohunter.model.ApiService
-import com.acme.sohunter.model.OAuthResponse
-import com.acme.sohunter.utils.OAuthServiceBuilder
+import com.acme.sohunter.data.api.ApiService
+import com.acme.sohunter.data.repository.Repository
+import com.acme.sohunter.ui.SOViewModel
+import com.acme.sohunter.utils.WebServiceBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.net.URLEncoder
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var repository : Repository //TODO: Move this reference to the view model
+    private lateinit var viewModel : SOViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //callOAuth2Service(this)
+        repository = Repository()
         requestRecentQuestions()
     }
 
     private fun requestRecentQuestions() {
-        val request = OAuthServiceBuilder.buildService(ApiService::class.java)
+        val request = repository.remoteSource()
         val call = request.getRecentQuestions()
 
         call.enqueue(object : Callback<String> {
@@ -43,14 +42,14 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.i("HELL_NO","YOU BLEW IT MOTHER FUCKER!!!")
+                Log.i("onFailure","Retrofit Network Error")
             }
 
         })
     }
 
     private fun callOAuth2Service(context: Context) {
-        val request = OAuthServiceBuilder.buildService(ApiService::class.java)
+        val request = WebServiceBuilder.buildService(ApiService::class.java)
         val call = request.oauthHtmlRequest()
 
         call.enqueue(object : Callback<String> {
@@ -72,7 +71,6 @@ class MainActivity : AppCompatActivity() {
 
                     if (html != null) {
                         webView.loadDataWithBaseURL(null,html,"text/html","utf-8",null)
-
                     }
                 }
             }

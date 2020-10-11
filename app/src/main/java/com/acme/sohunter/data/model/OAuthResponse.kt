@@ -1,4 +1,4 @@
-package com.acme.sohunter.model
+package com.acme.sohunter.data.model
 
 import com.google.gson.annotations.SerializedName
 

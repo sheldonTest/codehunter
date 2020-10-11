@@ -4,8 +4,10 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
-object OAuthServiceBuilder {
+object WebServiceBuilder {
+
     private val client = OkHttpClient.Builder().build()
+
     private val retrofit = Retrofit.Builder()
         .baseUrl(Constants.API_URL)
         .addConverterFactory(ScalarsConverterFactory.create())

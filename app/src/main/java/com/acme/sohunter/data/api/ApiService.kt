@@ -1,9 +1,9 @@
-package com.acme.sohunter.model
+package com.acme.sohunter.data.api
 
+import com.acme.sohunter.data.model.OAuthResponse
 import com.acme.sohunter.utils.Constants
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.Query
 
@@ -26,5 +26,7 @@ interface ApiService {
                             @Query("order") order: String = "desc",
                             @Query("sort") sort: String = "activity",
                             @Query("site") site: String = "stackoverflow"): Call<String>
+
+
 
 }
