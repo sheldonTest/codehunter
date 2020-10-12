@@ -1,5 +1,8 @@
 package com.acme.sohunter.framework
 
-data class Interactors( val dataum: String) {
+import com.acme.sohunter.core.interactors.GetRemoteSource
+
+data class Interactors( val remoteData: GetRemoteSource) {
+
 
 }
