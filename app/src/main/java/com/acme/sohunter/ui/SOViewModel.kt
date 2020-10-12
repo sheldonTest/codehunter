@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.acme.sohunter.R
 import com.acme.sohunter.data.api.ApiService
 import com.acme.sohunter.data.repository.Repository
+import com.acme.sohunter.utils.JSONUtil
 import com.acme.sohunter.utils.WebServiceBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,6 +26,7 @@ class SOViewModel(private val repository: Repository) : ViewModel() {
 
                 if(response.isSuccessful) {
                     val questions = response.body()
+                    questions?.let { JSONUtil.processQuestion(it) }
                     Log.i("WE_DID_IT","Question Body: ${questions}")
                 }
             }
