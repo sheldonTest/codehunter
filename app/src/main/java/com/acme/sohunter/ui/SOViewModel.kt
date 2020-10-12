@@ -13,8 +13,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SOViewModel(private val repository: Repository) : ViewModel() {
+class SOViewModel : ViewModel() {
 
+    private val repository: Repository = Repository()
 
      fun requestRecentQuestions() {
         val request = repository.remoteSource()
@@ -28,7 +29,7 @@ class SOViewModel(private val repository: Repository) : ViewModel() {
                     val questions = response.body()
                     questions?.let { JSONUtil.processQuestion(it) }
                     Log.i("WE_DID_IT","Question Body: ${questions}")
-                }
+                                                                                                                                    }
             }
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.i("onFailure","Retrofit Network Error")

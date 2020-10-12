@@ -21,7 +21,7 @@ interface ApiService {
 
     @GET(Constants.RECENT_QUESTIONS_PARAMS)
     fun getRecentQuestions( @Query("order") order: String = "desc",
-                            @Query("sort") sort: String = "activity",
+                            @Query("sort") sort: String = "month",
                             @Query("site") site: String = "stackoverflow"): Call<String>
 
 
