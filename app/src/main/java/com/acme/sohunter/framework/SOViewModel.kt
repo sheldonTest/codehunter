@@ -1,14 +1,11 @@
-package com.acme.sohunter.ui
+package com.acme.sohunter.framework
 
 import android.util.Log
-import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
-import com.acme.sohunter.R
-import com.acme.sohunter.data.api.ApiService
-import com.acme.sohunter.data.repository.Repository
-import com.acme.sohunter.utils.JSONUtil
-import com.acme.sohunter.utils.WebServiceBuilder
+import com.acme.sohunter.core.data.api.ApiService
+import com.acme.sohunter.core.data.Repository
+import com.acme.sohunter.framework.networking.WebServiceBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

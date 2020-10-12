@@ -1,5 +1,6 @@
-package com.acme.sohunter.utils
+package com.acme.sohunter.framework.networking
 
+import com.acme.sohunter.framework.Constants
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory

@@ -1,10 +1,11 @@
-package com.acme.sohunter
+package com.acme.sohunter.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.acme.sohunter.ui.SOViewModel
+import com.acme.sohunter.R
+import com.acme.sohunter.framework.SOViewModel
 
 
 class MainActivity : AppCompatActivity(), ViewModelStoreOwner {

@@ -1,13 +1,20 @@
-package com.acme.sohunter.utils
+package com.acme.sohunter.framework
 
 import android.util.Log
+import com.acme.sohunter.core.domain.Questions
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
 object JSONUtil {
 
+    private val questionArray = ArrayList<Questions>()
+
     fun processQuestion(json: String) {
+        var answerCount : Int
+        var title : String
+        var link : String
+        var questionData : Questions
 
         try {
             val parentObj = JSONObject(json)
@@ -16,24 +23,25 @@ object JSONUtil {
             for(index in 0 until itemArray.length()) {
                 val objs = itemArray.getJSONObject(index)
 
-                if(objs.has("accepted_answer_id")) {
+                if(objs.has(Constants.ACCEPTED_ANSWER_ID)) {
 
-                    if(objs.has("answer_count") ) {
-                        val answerCount = objs.getInt("answer_count")
+                    if(objs.has(Constants.ANSWER_COUNT) ) {
+                         answerCount = objs.getInt(Constants.ANSWER_COUNT)
                         if(answerCount > 1) {
 
-                            if(objs.has("title")) {
-                                val title = objs.getString("title")
+                            if(objs.has(Constants.TITLE)) {
+                                 title = objs.getString(Constants.TITLE)
                                 Log.i("Title","${title}")
                             }
 
-                            if(objs.has("link")) {
-                                val link = objs.getString("link")
+                            if(objs.has(Constants.LINK)) {
+                                link = objs.getString(Constants.LINK)
                                 Log.i("Link","${link}")
                             }
 
                             Log.i("Answer_Count"," ${answerCount}")
                         }
+
                     }
                 }
 
@@ -45,6 +53,8 @@ object JSONUtil {
             e.printStackTrace()
         }
     }
+
+    fun getQuestionData() : ArrayList<Questions> = questionArray
 
 
 }

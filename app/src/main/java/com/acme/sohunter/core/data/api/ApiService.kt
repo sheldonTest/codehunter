@@ -1,7 +1,7 @@
-package com.acme.sohunter.data.api
+package com.acme.sohunter.core.data.api
 
-import com.acme.sohunter.data.model.OAuthResponse
-import com.acme.sohunter.utils.Constants
+import com.acme.sohunter.core.domain.OAuthResponse
+import com.acme.sohunter.framework.Constants
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

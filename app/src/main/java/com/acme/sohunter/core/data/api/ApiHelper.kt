@@ -1,6 +1,6 @@
-package com.acme.sohunter.data.api
+package com.acme.sohunter.core.data.api
 
-import com.acme.sohunter.utils.WebServiceBuilder
+import com.acme.sohunter.framework.networking.WebServiceBuilder
 
 class ApiHelper(private val apiService: ApiService) {
 

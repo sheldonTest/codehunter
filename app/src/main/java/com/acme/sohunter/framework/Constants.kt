@@ -1,4 +1,4 @@
-package com.acme.sohunter.utils
+package com.acme.sohunter.framework
 
 interface Constants {
 
@@ -7,6 +7,11 @@ interface Constants {
         const val AUTH_PARAMS = "oauth/dialog/"
         const val API_URL = "https://api.stackexchange.com"
         const val RECENT_QUESTIONS_PARAMS = "/2.2/questions"
+
+        const val ACCEPTED_ANSWER_ID = "accepted_answer_id"
+        const val ANSWER_COUNT = "answer_count"
+        const val TITLE = "title"
+        const val LINK = "link"
     }
 
 }
