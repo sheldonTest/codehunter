@@ -18,7 +18,6 @@ import retrofit2.Response
 class Repository {
 
     fun remoteSource() = WebServiceBuilder.buildService(ApiService::class.java)
-    fun getRecentQuestions() : Call<String> = remoteSource().getRecentQuestions()
     private var questionData : MutableList<Questions> = ArrayList()
 
     fun requestRecentQuestions() : LiveData<List<Questions>> {
