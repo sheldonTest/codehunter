@@ -11,4 +11,4 @@ This app is a simple stackoverflow viewer
 
 To get access to the code hit the green code button located on the right. From there you can download the Android Studio project.
 
-NOTE: This app was tested using API level 30 and Android 10
+NOTE: This app was tested using API level 30 and Android 10. Also if needed make sure WiFi is enabled while testing on a device.
