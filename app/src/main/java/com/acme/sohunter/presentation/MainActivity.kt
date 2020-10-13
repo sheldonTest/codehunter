@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), ViewModelStoreOwner {
 
     private fun setupSOList(context: Context) {
         viewModel.requestRecentQuestions().observe(this, Observer { questions ->
-            soAdapter = RecyclerAdapter(questions.distinct())
+            soAdapter = RecyclerAdapter(this,questions.distinct())
 
             sorecycler.apply {
                 sorecycler.layoutManager = linearLayerManager
